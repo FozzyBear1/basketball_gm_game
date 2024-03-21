@@ -1,11 +1,12 @@
 from player import Player
 
 class Team:
-    def __init__(self, location, name, roster, team_salary):
+    def __init__(self, location, name, roster, team_salary, team_overall):
         self.location = location
         self.name = name
         self.roster = set(roster) if roster is not None else set()
         self.team_salary = team_salary
+        self.team_overall = team_overall
 
     def get_location(self):
         return self.location 
@@ -40,6 +41,20 @@ class Team:
     def calculate_team_salary(self):
         salary = 0
         for player in self.roster:
-            salary += player.salary
+            salary += Player.get_salary(player)
 
         return salary
+    
+    def get_team_overall(self):
+        return self.team_overall
+    
+    def calculate_team_overall(self):
+        counter = 0
+        overall = 0
+
+        for player in self.roster:
+            counter = counter + 1
+            overall += Player.calculate_overall(player)
+
+        overall = overall / counter
+        return overall

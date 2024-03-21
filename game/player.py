@@ -3,7 +3,7 @@ class Player:
     TRAIT_NAMES = ['shooting', 'passing', 'dribbling', 'defense', 'speed']
     TRAIT_WEIGHTS = {'shooting': 0.20, 'passing': 0.20, 'dribbling': 0.20, 'defense': 0.20, 'speed': 0.20}
     
-    def __init__(self, name, age, height, position, weight, number, traits):
+    def __init__(self, name, age, height, position, weight, number, traits, salary):
         self.name = name
         self.age = age
         self.height = height
